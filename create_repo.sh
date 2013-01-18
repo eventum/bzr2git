@@ -14,8 +14,10 @@ bzr branch lp:eventum .git/bzr/repo/master
 bzr fast-export --plain --export-marks=.git/bzr/map/master-bzr --git-branch=bzr/master .git/bzr/repo/master > bzr-fast-export
 
 # Fixing the repo committers
-sed -i -e "s/^committer <Elan>/committer Elan Ruusamäe <glen@delfi.ee>/" bzr-fast-export
-sed -i -e "s/^committer <>/committer Unknown <noreply@launchpad.net>/" bzr-fast-export
+sed -i -e "
+	s/^committer <Elan>/committer Elan Ruusamäe <glen@delfi.ee>/
+	s/^committer <>/committer Unknown <noreply@launchpad.net>/
+" bzr-fast-export
 
 # Import into git
 git fast-import --quiet --export-marks=.git/bzr/map/master-git < bzr-fast-export
