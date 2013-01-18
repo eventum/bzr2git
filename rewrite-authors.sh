@@ -7,9 +7,17 @@
 
 git filter-branch -f --env-filter '
 	case "$GIT_AUTHOR_EMAIL:$GIT_AUTHOR_NAME" in
-	*:"=?utf-8?q?Elan_Ruusam=C3=A4e?=" | \
 	*:"Launchpad Translations on behalf of glen666" | \
 	codehost@crowberry:"Launchpad Code Hosting" | \
+	_____ )
+		export GIT_AUTHOR_NAME="Elan Ruusamäe (Launchpad Translations)"
+		export GIT_AUTHOR_EMAIL="glen@delfi.ee"
+		export GIT_COMMITTER_NAME="Elan Ruusamäe"
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+
+	*:"=?utf-8?q?Elan_Ruusam=C3=A4e?=" | \
+	Elan:Elan | \
 	:glen | \
 	glen@delfi.ee:glen | \
 	_____ )
@@ -80,6 +88,10 @@ git filter-branch -f --env-filter '
 	"Hartmut Holzgraefe":*)
 		export GIT_AUTHOR_EMAIL="hartmut@php.net"
 		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:)
+		export GIT_AUTHOR_NAME="cvs2svn"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
 		;;
 	esac
 
