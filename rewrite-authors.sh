@@ -18,9 +18,6 @@ git filter-branch -f --env-filter '
 		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
 		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 		;;
-	esac
-
-	case "$GIT_AUTHOR_EMAIL:$GIT_AUTHOR_NAME" in
 	:"mysql.com!bryan" | \
 	:"balsdorf" | \
 	:"jesushatesjava.com!bryan/balsdorf" | \
@@ -28,20 +25,60 @@ git filter-branch -f --env-filter '
 	:"!balsdorf" | \
 	:"!bryan" | \
 	bryan@achilles:"Bryan Alsdorf" | \
+	bryan@askmonty.org:"Bryan Alsdorf" | \
 	bryan@montyprogram.com:"Bryan Alsdorf" | \
 	_____ )
 		export GIT_AUTHOR_NAME="Bryan Alsdorf"
-		export GIT_AUTHOR_EMAIL="bryan@askmonty.org"
+		export GIT_AUTHOR_EMAIL="balsdorf@gmail.com"
 		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
 		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 		;;
-	esac
-
-	case "$GIT_AUTHOR_EMAIL:$GIT_AUTHOR_NAME" in
 	:"mysql.com!jpm")
 		export GIT_AUTHOR_NAME="João Prado Maia"
-		export GIT_AUTHOR_EMAIL="jpm@mysql.com"
+		export GIT_AUTHOR_EMAIL="jpm@pessoal.org"
 		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:mroszyk)
+		export GIT_AUTHOR_NAME="Matt Roszyk"
+		export GIT_AUTHOR_EMAIL="mrrozz@gmail.com"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:kbrown)
+		export GIT_AUTHOR_NAME="Kirk Brown"
+		export GIT_AUTHOR_EMAIL="kirk@kirkbrown.com"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:mysql.com!ebraswell2)
+		export GIT_AUTHOR_NAME="Eric"
+		export GIT_AUTHOR_EMAIL="eric@bitherder.net"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:rlambe)
+		export GIT_AUTHOR_NAME="Ray Lambe"
+		export GIT_AUTHOR_EMAIL="ray.lambe@nf.sympatico.ca"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:mysql.com!lgrimmer)
+		export GIT_AUTHOR_NAME="Lenz Grimmer"
+		export GIT_AUTHOR_EMAIL="lenz@grimmer.com"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	:mysql.com!jimw)
+		export GIT_AUTHOR_NAME="Jim Winstead"
+		export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+		;;
+	*:"Harri Porten")
+		export GIT_AUTHOR_EMAIL="porten@froglogic.com"
+		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+		;;
+	"Hartmut Holzgraefe":*)
+		export GIT_AUTHOR_EMAIL="hartmut@php.net"
 		export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 		;;
 	esac
