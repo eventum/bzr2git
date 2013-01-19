@@ -37,6 +37,12 @@ rm -f $dir/bzr-fast-export*
 git branch master bzr/master
 git config bzr.master.bzr bzr/master
 git config bzr.bzr/master.upstream $bzr_upstream
+
+# make some space
+# 115MiB -> 36MiB
+git gc --prune=now --aggressive
+git repack -a -d -f -F --window=250 --depth=250
+
 #git checkout master
 
 git bzr sync
