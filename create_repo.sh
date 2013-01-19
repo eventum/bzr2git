@@ -24,12 +24,16 @@ bzr init-repo --no-trees .git/bzr/repo
 bzr branch $bzr_upstream .git/bzr/repo/master
 
 # Fast-export the bzr repo
-#--authors-file=authors
-bzr fast-export --plain --export-marks=.git/bzr/map/master-bzr --git-branch=bzr/master .git/bzr/repo/master > bzr-fast-export
+test -s $dir/bzr-fast-export.raw || \
+bzr fast-export --plain --export-marks=.git/bzr/map/master-bzr --git-branch=bzr/master .git/bzr/repo/master \
+	> $dir/bzr-fast-export.raw
+
+test -s $dir/bzr-fast-export || \
+	bzr fast-import-filter --user-map=$dir/authors > $dir/bzr-fast-export < $dir/bzr-fast-export.raw
 
 # Import into git
-git fast-import --quiet --export-marks=.git/bzr/map/master-git < bzr-fast-export
-#rm -f bzr-fast-export
+git fast-import --quiet --export-marks=.git/bzr/map/master-git < $dir/bzr-fast-export
+rm -f $dir/bzr-fast-export*
 git branch master bzr/master
 git config bzr.master.bzr bzr/master
 git config bzr.bzr/master.upstream $bzr_upstream

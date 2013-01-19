@@ -1,0 +1,31 @@
+# authors file for Eventum bzr2git migration
+apache=svnadmin
+!balsdorf=Bryan Alsdorf <balsdorf@gmail.com>
+balsdorf=Bryan Alsdorf <balsdorf@gmail.com>
+bkbits.net!cvsexport=bk2cvs
+Bryan Alsdorf <bryan@achilles>=Bryan Alsdorf <balsdorf@gmail.com>
+Bryan Alsdorf <bryan@askmonty.org>=Bryan Alsdorf <balsdorf@gmail.com>
+Bryan Alsdorf <bryan@montyprogram.com>=Bryan Alsdorf <balsdorf@gmail.com>
+bryan@askmonty.org=Bryan Alsdorf <balsdorf@gmail.com>
+!bryan=Bryan Alsdorf <balsdorf@gmail.com>
+bryan@montyprogram.com=Bryan Alsdorf <balsdorf@gmail.com>
+ <Elan>=Elan Ruusamäe <glen@delfi.ee>
+<>=Elan Ruusamäe <glen@delfi.ee>
+=Elan Ruusamäe <glen@delfi.ee>
+glen@delfi.ee=Elan Ruusamäe <glen@delfi.ee>
+glen=Elan Ruusamäe <glen@delfi.ee>
+Harri Porten <porten@greco>=Harri Porten <porten@froglogic.com>
+Hartmut Holzgraefe <hartmut@mysql.com>=Hartmut Holzgraefe <hartmut@php.net>
+jesushatesjava.com!balsdorf=Bryan Alsdorf <balsdorf@gmail.com>
+jesushatesjava.com!bryan/balsdorf=Bryan Alsdorf <balsdorf@gmail.com>
+kbrown=Kirk Brown <kirk@kirkbrown.com>
+Launchpad Code Hosting <codehost@crowberry>=Elan Ruusamäe (Launchpad Translations) <glen@delfi.ee>
+Launchpad Translations on behalf of glen666=Elan Ruusamäe (Launchpad Translations) <glen@delfi.ee>
+mroszyk=Matt Roszyk <mrrozz@gmail.com>
+mysql.com!bryan=Bryan Alsdorf <balsdorf@gmail.com>
+mysql.com!ebraswell2=Eric <eric@bitherder.net>
+mysql.com!jimw=Jim Winstead <>
+mysql.com!jpm=João Prado Maia <jpm@pessoal.org>
+mysql.com!lgrimmer=Lenz Grimmer <lenz@grimmer.com>
+rlambe=Ray Lambe <ray.lambe@nf.sympatico.ca>
+=?utf-8?q?Elan_Ruusam=C3=A4e?= <glen@delfi.ee>=Elan Ruusamäe <glen@delfi.ee>
