@@ -14,9 +14,9 @@ bzr_upstream=$dir/eventum.bzr
 
 # Create repo
 # mkdir, so it will fail if dir exists
-mkdir bzr2git
-cd bzr2git
-git init
+mkdir eventum.git
+cd eventum.git
+git init --bare
 
 # Prepare for bzr
 install -d .git/bzr/{map,repo}
@@ -42,8 +42,6 @@ git config bzr.bzr/master.upstream $bzr_upstream
 # 115MiB -> 36MiB
 git gc --prune=now --aggressive
 git repack -a -d -f -F --window=250 --depth=250
-
-#git checkout master
 
 git bzr sync
 #git remote add github git@github.com:petterl/eventum.git
