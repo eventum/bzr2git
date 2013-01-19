@@ -12,11 +12,13 @@ test -d eventum.bzr || bzr branch lp:eventum eventum.bzr
 # test one
 bzr_upstream=$dir/eventum.bzr
 
+# TODO:
+# - use bare repo: https://github.com/termie/git-bzr-ng/issues/52
 # Create repo
 # mkdir, so it will fail if dir exists
 mkdir eventum.git
 cd eventum.git
-git init --bare
+git init
 
 # Prepare for bzr
 install -d .git/bzr/{map,repo}
@@ -32,7 +34,7 @@ test -s $dir/bzr-fast-export || \
 	bzr fast-import-filter --user-map=$dir/authors > $dir/bzr-fast-export < $dir/bzr-fast-export.raw
 
 # Import into git
-git fast-import --quiet --export-marks=.git/bzr/map/master-git < $dir/bzr-fast-export
+git fast-import --export-marks=.git/bzr/map/master-git < $dir/bzr-fast-export
 rm -f $dir/bzr-fast-export*
 git branch master bzr/master
 git config bzr.master.bzr bzr/master
@@ -41,6 +43,7 @@ git config bzr.bzr/master.upstream $bzr_upstream
 # make some space
 # 115MiB -> 36MiB
 git gc --prune=now --aggressive
+#git gc --aggressive
 git repack -a -d -f -F --window=250 --depth=250
 
 git bzr sync
