@@ -46,6 +46,6 @@ git gc --prune=now --aggressive
 #git gc --aggressive
 git repack -a -d -f -F --window=250 --depth=250
 
-git bzr sync
 #git remote add github git@github.com:petterl/eventum.git
-#git push github master
+#git remote add github git@github.com:glensc/eventum.git
+#git push -u github master
