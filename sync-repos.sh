@@ -1,11 +1,22 @@
 #!/bin/sh
-REPOBASE=$(dirname "$0")
-REPOBASE=$(cd "$REPOBASE"; pwd)
+set -e
 
-for REPO in eventum; do
-	cd $REPOBASE/$REPO/
-	echo "Syncing $REPO repository from launchpad.."
-	git bzr pull
-	echo "Pushing $REPO repository to github.."
-	git push github master
-done
+dir=$(dirname "$0")
+dir=$(cd "$dir"; pwd)
+
+# pull bzr and git changes
+cd $dir/eventum.bzr
+bzr pull
+
+cd $dir/eventum.git
+git pull
+
+# first pull bzr->git
+git bzr pull
+# then push git->bzr
+git bzr push
+
+# and distribute changes
+#git push origin master
+cd $dir/eventum.bzr
+#bzr push
