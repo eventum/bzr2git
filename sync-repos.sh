@@ -19,4 +19,4 @@ git bzr push
 # and distribute changes
 #git push origin master
 cd $dir/eventum.bzr
-#bzr push
+bzr push
