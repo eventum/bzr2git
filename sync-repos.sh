@@ -14,9 +14,9 @@ git pull
 # first pull bzr->git
 git bzr pull
 # then push git->bzr
-git bzr push
+git bzr push || :
 
 # and distribute changes
-#git push origin master
+git push origin master
 cd $dir/eventum.bzr
 bzr push
