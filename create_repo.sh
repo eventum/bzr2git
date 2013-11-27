@@ -1,6 +1,15 @@
 #!/bin/sh
 set -e
 
+die() {
+	echo >&2 "$*"
+	exit 1
+}
+
+git --version >/dev/null || die "git not present"
+bzr --version >/dev/null || die "bzr-fastimport not present"
+bzr fast-export --usage >/dev/null 2>&1 || die "bzr-fastimport not present"
+
 dir=$(dirname "$0")
 dir=$(cd "$dir"; pwd)
 
