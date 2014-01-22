@@ -58,6 +58,5 @@ git repack -a -d -f -F --window=250 --depth=250
 # checkout master, otherwise first merge will get confused
 git checkout master
 
-#git remote add github git@github.com:petterl/eventum.git
-#git remote add github git@github.com:glensc/eventum.git
+git remote add origin git@github.com:eventum/eventum.git
 #git push -u github master
