@@ -49,14 +49,28 @@ git branch master bzr/master
 git config bzr.master.bzr bzr/master
 git config bzr.bzr/master.upstream $bzr_upstream
 
+commits=$(git rev-list --all | wc -l)
+du -sh .git
+
 # make some space
-# 115MiB -> 36MiB
+# 125MiB -> 39MiB
 git gc --prune=now --aggressive
-#git gc --aggressive
 git repack -a -d -f -F --window=250 --depth=250
+
+c=$(git rev-list --all | wc -l)
+if [ "$commits" != "$c" ]; then
+	echo >&2 "ERROR: commits changed from $commits to $c"
+	exit 1
+fi
+
+du -sh .git
 
 # checkout master, otherwise first merge will get confused
 git checkout master
 
+# git gc may lose some loose refs.
+# avoid this at any cost for sake of slightly bigger repo
+#git config gc.auto 0
+
 git remote add origin git@github.com:eventum/eventum.git
-#git push -u github master
+#git push -u origin master
