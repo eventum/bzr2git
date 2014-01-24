@@ -19,5 +19,5 @@ test -e $lock || exit 0
 
 	sh -x sync-repos.sh
 
-	rm $lock
+	rm -f $lock
 ) 9<$lock
