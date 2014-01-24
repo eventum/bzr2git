@@ -18,5 +18,6 @@ git bzr push || :
 
 # and distribute changes
 git push origin master
+git push --tags
 cd $dir/eventum.bzr
 bzr push
