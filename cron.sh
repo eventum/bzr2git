@@ -15,7 +15,7 @@ test -e $lock || exit 0
 	# load deploy key to ssh agent that bzr/git can use
 	eval `ssh-agent` >/dev/null
 	ssh-add id_eventum 2>/dev/null
-	trap "set -x; kill $SSH_AGENT_PID" 0
+	trap "set -x; kill $SSH_AGENT_PID" 0 INT
 
 	sh -x sync-repos.sh
 
