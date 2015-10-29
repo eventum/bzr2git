@@ -16,16 +16,13 @@ dir=$(cd "$dir"; pwd)
 # checkout bazaar locally, to cut down network traffic if want to restart process
 test -d eventum.bzr || bzr branch lp:eventum eventum.bzr
 
-# live one
-#bzr_upstream=lp:eventum
-# test one
 bzr_upstream=$dir/eventum.bzr
 
 # TODO:
 # - use bare repo: https://github.com/termie/git-bzr-ng/issues/52
 # Create repo
 # mkdir, so it will fail if dir exists
-mkdir eventum.git
+install -d eventum.git
 cd eventum.git
 git init
 
@@ -73,4 +70,3 @@ fi
 du -sh .git
 
 git remote add origin git@github.com:eventum/eventum.git
-#git push -u origin master
