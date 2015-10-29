@@ -4,6 +4,11 @@ set -e
 dir=$(dirname "$0")
 dir=$(cd "$dir"; pwd)
 
+if [ ! -d $dir/eventum.bzr ] || [ ! -d $dir/eventum.git ]; then
+	echo >&2 "Repos not initialized; run create_repo.sh"
+	exit 1
+fi
+
 # pull bzr and git changes
 cd $dir/eventum.bzr
 bzr pull
